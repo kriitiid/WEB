@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mindfulness Page</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="./index.html">
+          <img src="./images/logo.png" alt="Logo" />
+        </a>
+      </div>
+      <nav class="nav">
+        <a href="./meditation.html">Meditation</a>
+        <a href="./Mindfulness.html">Mindfulness</a>
+        <a href="./blog.html">Blog</a>
+        <a href="./dashboard.html">Dashboard</a>
+      </nav>
+      <div class="auth-buttons">
+        <a href="./Login.html">
+          <button class="log-in">Log In</button>
+        </a>
+      </div>
+    </header>
+
+    <!-- Meditation Session Section -->
+    <section class="meditation-session">
+      <h2>Daily Tasks</h2>
+
+      <div class="meditation-columns">
+        <div class="meditation-column">
+          <h3>Breathing Exercise</h3>
+          <img
+            src="./images/breathing.jpeg"
+            alt="Article 1"
+            class="medium-img"
+          />
+
+          <p>
+            A guide meditation focusing on breathing techniques to reduce
+            stress.
+          </p>
+          <button class="read-more-button">Start Now</button>
+        </div>
+
+        <div class="meditation-column">
+          <h3>Yoga Flow</h3>
+          <img src="./images/yoga.avif" alt="Article 2" class="medium-img" />
+          <p>A Yoga designed to improve flexibility and balance</p>
+          <button class="read-more-button">Begins</button>
+        </div>
+
+        <div class="meditation-column">
+          <h3>Oceans Sounds</h3>
+          <img src="./images/ocean.jpg" alt="Article 3" class="medium-img" />
+          <p>
+            Listen to claming ocean sounds to enhance relaxation and mindfulness
+          </p>
+          <button class="read-more-button">Listen</button>
+        </div>
+      </div>
+    </section>
+    <div class="meditation-columns meditation-columns-vertical">
+      <div class="meditation-column">
+        <h3>Breathing Exercise</h3>
+        <img src="./images/breathing.jpeg" alt="Article 1" class="medium-img" />
+        <p>
+          A guide meditation focusing on breathing techniques to reduce stress.
+        </p>
+        <button class="read-more-button">Start Now</button>
+      </div>
+
+      <div class="meditation-column">
+        <h3>Yoga Flow</h3>
+        <img src="./images/yoga.avif" alt="Article 2" class="medium-img" />
+        <p>A Yoga designed to improve flexibility and balance.</p>
+        <button class="read-more-button">Begins</button>
+      </div>
+
+      <div class="meditation-column">
+        <h3>Ocean Sounds</h3>
+        <img src="./images/ocean.jpg" alt="Article 3" class="medium-img" />
+        <p>
+          Listen to calming ocean sounds to enhance relaxation and mindfulness.
+        </p>
+        <button class="read-more-button">Listen</button>
+      </div>
+    </div>
+    <section class="progress-overview">
+      <h2>Progress Overview</h2>
+      <div>
+        <button class="filter-btn">12 month</button>
+        <button class="filter-btn">30 days</button>
+      </div>
+      <canvas id="progressChart"></canvas>
+    </section>
+    <!-- Subscribe Section -->
+    <section class="subscribe-section">
+      <div class="subscribe-content">
+        <img src="./images/logo.png" alt="Logo" class="subscribe-logo" />
+        <h2>Subscribe to Our Newsletter</h2>
+        <p>Get the latest updates right in your inbox!</p>
+        <form class="subscribe-form">
+          <div class="input-group">
+            <span class="email-icon">📧</span>
+            <input type="email" placeholder="Enter your email" required />
+            <button type="submit" class="subscribe-button">Subscribe</button>
+          </div>
+        </form>
+      </div>
+    </section>
+    <!-- Footer Section -->
+    <section class="footer-section">
+      <div class="footer-container">
+        <div class="footer-column">
+          <h3>Product</h3>
+          <ul>
+            <li>Features</li>
+            <li>Pricing</li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Resources</h3>
+          <ul>
+            <li>Blog</li>
+            <li>User Guides</li>
+            <li>Webinars</li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Company</h3>
+          <ul>
+            <li>About Us</li>
+            <li>Contact Us</li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Plans and Pricing</h3>
+          <ul>
+            <li>Personal</li>
+            <li>Start Up</li>
+            <li>Organization</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <!-- Final Footer Section -->
+    <footer class="final-footer">
+      <div class="footer-content">
+        <p class="footer-text">@2024 Mindease. Privacy. Terms. Sitemap</p>
+
+        <div class="footer-right">
+          <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+        </div>
+      </div>
+    </footer>
+    <script>
+      const ctx = document.getElementById("progressChart").getContext("2d");
+      const progressChart = new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: [
+            "Day 1",
+            "Day 2",
+            "Day 3",
+            "Day 4",
+            "Day 5",
+            "Day 6",
+            "Day 7",
+          ],
+          datasets: [
+            {
+              label: "Progress Line 1",
+              data: [5, 10, 8, 12, 6, 14, 9],
+              borderColor: "blue",
+              backgroundColor: "rgba(0, 0, 255, 0.1)",
+              fill: false,
+              tension: 0.4,
+              pointRadius: 3,
+            },
+            {
+              label: "Progress Line 2",
+              data: [7, 6, 9, 13, 11, 8, 10],
+              borderColor: "red",
+              backgroundColor: "rgba(255, 0, 0, 0.1)",
+              fill: false,
+              tension: 0.4,
+              pointRadius: 3,
+            },
+            {
+              label: "Progress Line 3",
+              data: [6, 8, 5, 10, 12, 9, 11],
+              borderColor: "green",
+              backgroundColor: "rgba(0, 255, 0, 0.1)",
+              fill: false,
+              tension: 0.4,
+              pointRadius: 3,
+            },
+            {
+              label: "Progress Line 4",
+              data: [9, 5, 11, 6, 8, 13, 7],
+              borderColor: "purple",
+              backgroundColor: "rgba(128, 0, 128, 0.1)",
+              fill: false,
+              tension: 0.4,
+              pointRadius: 3,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          scales: {
+            x: {
+              display: true,
+              title: {
+                display: true,
+                text: "Days",
+              },
+            },
+            y: {
+              display: true,
+              title: {
+                display: true,
+                text: "Progress",
+              },
+              beginAtZero: true,
+            },
+          },
+          plugins: {
+            legend: {
+              display: true, // Show the legend to differentiate the lines
+              position: "top", // Place the legend at the top
+            },
+          },
+        },
+      });
+    </script>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

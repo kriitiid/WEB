@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Page</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      .progress-graph {
+        display: flex;
+        justify-content: space-around;
+        padding: 20px;
+        background-color: white;
+      }
+
+      .graph-container {
+        width: 45%;
+      }
+
+      canvas {
+        width: 100% !important;
+        height: 400px !important; /* Set the height for better visibility */
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="./index.html">
+          <img src="./images/logo.png" alt="Logo" />
+        </a>
+      </div>
+      <nav class="nav">
+        <a href="./index.html">Meditation</a>
+        <a href="./Mindfulness.html">Mindfulness</a>
+        <a href="./index.html">Blog</a>
+        <a href="./dashboard.html">Dashboard</a>
+      </nav>
+      <div class="auth-buttons">
+        <button class="sign-up">Sign Up</button>
+        <button class="log-in">Log In</button>
+      </div>
+    </header>
+    <!-- Hero Section -->
+    <section class="heroS">
+      <h2>Activity Summary</h2>
+      <p>Welcome back!</p>
+    </section>
+
+    <!-- Article List Section -->
+    <section class="article-list-section">
+      <div class="article-columns">
+        <div class="article-column">
+          <img src="./images/yg.avif"" alt="Article 1" class="medium-img" />
+          <h3>Yoga Section</h3>
+          <p>
+            Join our yoga sessions to improve your flexibility, strength, and
+            mindfulness. Experience the balance of body and mind.
+          </p>
+
+          <button class="read-more-button">Read More</button>
+        </div>
+
+        <div class="article-column">
+          <img src="./images/md.jpeg" alt="Article 2" class="medium-img" />
+
+          <h3>New Meditation</h3>
+          <p>
+            Explore our latest meditation practices designed to help you find
+            inner peace and enhance your mental well-being.
+          </p>
+          <button class="read-more-button">Read More</button>
+        </div>
+      </div>
+    </section>
+    <!-- Progress Graph Section -->
+    <section class="progress-graph">
+      <div class="graph-container">
+        <h3>Meditation Sessions</h3>
+        <canvas id="lineChart"></canvas>
+      </div>
+      <div class="graph-container">
+        <h3>Total Meditation Time</h3>
+        <canvas id="doughnutChart"></canvas>
+      </div>
+    </section>
+    <section class="personalized-recommendation">
+      <div class="recommendation-content">
+        <div class="recommendation-text">
+          <h2>Personalized Recommendation</h2>
+          <h3>Yoga Flow</h3>
+          <p>
+            Based on your recent activity, we suggest trying our personalized
+            Yoga Flow. This session is tailored to enhance your flexibility,
+            balance, and relaxation. Join us for a rejuvenating experience that
+            aligns with your fitness goals.
+          </p>
+        </div>
+        <div class="recommendation-image">
+          <img src="./images/yg.avif"" alt="Yoga Flow" class="medium-img" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <section class="footer-section">
+      <div class="footer-container">
+        <div class="footer-column">
+          <h3>Product</h3>
+          <ul>
+            <li>Features</li>
+            <li>Pricing</li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Resources</h3>
+          <ul>
+            <li>Blog</li>
+            <li>User Guides</li>
+            <li>Webinars</li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Company</h3>
+          <ul>
+            <li>About Us</li>
+            <li>Contact Us</li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Plans and Pricing</h3>
+          <ul>
+            <li>Personal</li>
+            <li>Start Up</li>
+            <li>Organization</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <!-- Final Footer Section -->
+    <footer class="final-footer">
+      <div class="footer-content">
+        <p class="footer-text">@2024 Mindease. Privacy. Terms. Sitemap</p>
+
+        <div class="footer-right">
+          <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript to Handle Charts -->
+    <script>
+      document.querySelector(".sign-up").addEventListener("click", function () {
+        alert("Sign Up button clicked!");
+      });
+
+      document.querySelector(".log-in").addEventListener("click", function () {
+        alert("Log In button clicked!");
+      });
+
+      // Line Chart for Meditation Sessions
+      const lineChart = document.getElementById("lineChart").getContext("2d");
+      const lineChartInstance = new Chart(lineChart, {
+        type: "line",
+        data: {
+          labels: [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec",
+          ],
+          datasets: [
+            {
+              label: "Session Count",
+              data: [12, 15, 10, 5, 8, 14, 18, 20, 25, 22, 18, 12],
+              backgroundColor: "rgba(76, 95, 215, 0.1)",
+              borderColor: "#4c5fd7",
+              borderWidth: 2,
+              fill: true,
+              tension: 0.4,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+
+      // Doughnut Chart for Total Meditation Time
+      const doughnutChart = document
+        .getElementById("doughnutChart")
+        .getContext("2d");
+      const doughnutChartInstance = new Chart(doughnutChart, {
+        type: "doughnut",
+        data: {
+          labels: ["Meditation Time", "Remaining Time"],
+          datasets: [
+            {
+              data: [100, 300], // Example Data
+              backgroundColor: ["#4c5fd7", "#f7f7f7"],
+              hoverBackgroundColor: ["#3e51b3", "#e6e6e6"],
+              borderWidth: 0,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          cutout: "70%",
+        },
+      });
+    </script>
+  </body>
+</html>
